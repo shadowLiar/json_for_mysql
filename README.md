@@ -1,0 +1,4 @@
+# json_for_mysql
+json导入mysql数据库脚本
+
+自己瞎jb写的将一个3G左右的json数据导入到mysql里
