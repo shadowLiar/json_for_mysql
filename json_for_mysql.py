@@ -31,21 +31,18 @@ def reviewdata_insert(db):
                 #print(type(banner_url))
                 if banner_url == 'profile_banner_url' and phone == 'phone':
                     result.append((review_text['id'],review_text['name'],review_text['screen_name'],review_text['location'],review_text['url'],review_text['description'],review_text['protected'],review_text['followers_count'],review_text['friends_count'],review_text['listed_count'],review_text['created_at'],review_text['favourites_count'],review_text['verified'],review_text['statuses_count'],review_text['is_translator'],review_text['profile_image_url_https'],review_text['profile_banner_url'],review_text['default_profile_image'],review_text['translator_type'],review_text['phone']))
-                    print('banner和phone在')
                     inert_re = "insert into review(id,name,screen_name,location,url,description,protected,followers_count,friends_count,listed_count,created_at,favourites_count,verified,statuses_count,is_translator,profile_image_url_https,profile_banner_url,default_profile_image,translator_type,phone) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                     cursor = db.cursor()
                     cursor.executemany(inert_re,result)
                     db.commit()
                 elif banner_url == 'profile_banner_url' and phone == 'email':
                     result.append((review_text['id'],review_text['name'],review_text['screen_name'],review_text['location'],review_text['url'],review_text['description'],review_text['protected'],review_text['followers_count'],review_text['friends_count'],review_text['listed_count'],review_text['created_at'],review_text['favourites_count'],review_text['verified'],review_text['statuses_count'],review_text['is_translator'],review_text['profile_image_url_https'],review_text['profile_banner_url'],review_text['default_profile_image'],review_text['translator_type'],review_text['email']))
-                    print('banner和email在')
                     inert_re = "insert into review(id,name,screen_name,location,url,description,protected,followers_count,friends_count,listed_count,created_at,favourites_count,verified,statuses_count,is_translator,profile_image_url_https,profile_banner_url,default_profile_image,translator_type,email) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                     cursor = db.cursor()
                     cursor.executemany(inert_re,result)
                     db.commit()
                 elif phone == 'email' and  banner_url != 'profile_banner_url':
                     result.append((review_text['id'],review_text['name'],review_text['screen_name'],review_text['location'],review_text['url'],review_text['description'],review_text['protected'],review_text['followers_count'],review_text['friends_count'],review_text['listed_count'],review_text['created_at'],review_text['favourites_count'],review_text['verified'],review_text['statuses_count'],review_text['is_translator'],review_text['profile_image_url_https'],review_text['default_profile_image'],review_text['translator_type'],review_text['email']))
-                    print('email在')
                     inert_re = "insert into review(id,name,screen_name,location,url,description,protected,followers_count,friends_count,listed_count,created_at,favourites_count,verified,statuses_count,is_translator,profile_image_url_https,default_profile_image,translator_type,email) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                     cursor = db.cursor()
                     cursor.executemany(inert_re,result)
@@ -53,7 +50,6 @@ def reviewdata_insert(db):
                 
                 elif phone == 'phone' and banner_url != 'profile_banner_url':
                     result.append((review_text['id'],review_text['name'],review_text['screen_name'],review_text['location'],review_text['url'],review_text['description'],review_text['protected'],review_text['followers_count'],review_text['friends_count'],review_text['listed_count'],review_text['created_at'],review_text['favourites_count'],review_text['verified'],review_text['statuses_count'],review_text['is_translator'],review_text['profile_image_url_https'],review_text['default_profile_image'],review_text['translator_type'],review_text['phone']))
-                    print('phone在')
                     inert_re = "insert into review(id,name,screen_name,location,url,description,protected,followers_count,friends_count,listed_count,created_at,favourites_count,verified,statuses_count,is_translator,profile_image_url_https,default_profile_image,translator_type,phone) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                     cursor = db.cursor()
                     cursor.executemany(inert_re,result)
@@ -69,7 +65,7 @@ def reviewdata_insert(db):
             
             
 if __name__ == '__main__':
-    db = pymysql.connect(host='192.168.237.130',port=20999,user='root',passwd='123qwe..',db='twitter',charset="utf8mb4")
+    db = pymysql.connect(host='192.168.237.130',port=20999,user='root',passwd='root..',db='data',charset="utf8mb4")
     cursor = db.cursor()
     daoru(db)
     reviewdata_insert(db)
