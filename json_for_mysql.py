@@ -14,7 +14,7 @@ def daoru(db):
     cursor.execute(sql)
     
 def reviewdata_insert(db):
-    with open('E:\Desktop\落查\\twitter\\twitter.json',encoding='utf-8') as f:
+    with open('E:\Desktop\find\\data\\data.json',encoding='utf-8') as f:
         i = 0
         while True:
             i+=1
